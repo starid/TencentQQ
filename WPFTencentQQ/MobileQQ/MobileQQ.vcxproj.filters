@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Assistant">
+      <UniqueIdentifier>{ef45c949-ab45-47d3-8f3d-7e835f6c58bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\QQico">
+      <UniqueIdentifier>{4f016d44-6059-4cb2-aedc-6ca3ca6b1aba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\QQ.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\QQ.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\QQico\1.ico">
+      <Filter>资源文件\QQico</Filter>
+    </None>
+    <None Include="res\QQico\2.ico">
+      <Filter>资源文件\QQico</Filter>
+    </None>
+    <None Include="res\QQico\3.ico">
+      <Filter>资源文件\QQico</Filter>
+    </None>
+    <None Include="项目记录.txt" />
+    <None Include="遗留BUG.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="QQ.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="QQDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobeVar.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
+    <ClInclude Include="Dlg_Login.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol_type.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
+    <ClInclude Include="UserMsg.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCStatus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyListCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnerDrawListBox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCPSettingsDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnerDrawTreeCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IdentifyCodeDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLog.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileNo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MachineSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MBLBindSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NickNameQuery.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SeqSerial.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
+    <ClInclude Include="CNearByDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="QQ.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="QQDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dlg_Login.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCStatus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyListCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnerDrawListBox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCPSettingsDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnerDrawTreeCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IdentifyCodeDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLog.cpp">
+      <Filter>Assistant</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileNo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MachineSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MBLBindSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NickNameQuery.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SeqSerial.cpp">
+      <Filter>Assistant</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobeVar.cpp">
+      <Filter>Assistant</Filter>
+    </ClCompile>
+    <ClCompile Include="CNearByDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QQ.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
