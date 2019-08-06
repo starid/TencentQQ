@@ -1,0 +1,22 @@
+ LIBRARY UtilLib
+  EXPORTS 
+  _get_host_name
+  memstr
+  WideCharToBytes
+  GPTUnhandledExceptionFilter
+  ThreadProc
+  GetMachineGuid
+  CalculatebufCrc
+  GetGenerateG
+  GetGenerateEx
+  GetSSOConfigSid
+  CaculteGuid
+  GetTGTGT
+  GenerateGuid
+  CalcRound
+  Utf8ToMultiByte
+  MultiByteToUtf8
+  StrToHex
+  HexToStr
+  zcompress
+  zdecompress
