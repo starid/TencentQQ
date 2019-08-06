@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="MainQQ.Views.AllUsersView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../MainWindowResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        <CollectionViewSource x:Key="UserGroups" Source="{Binding Path=AllUsers}">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription PropertyName="Id" Direction="Ascending" />
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+
+            <GroupStyle x:Key="UserGroupStyle">
+                <GroupStyle.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                        x:Name="txt" 
+                        Background="{StaticResource Brush_HeaderBackground}"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="1"
+                        Padding="4,2,0,2"
+                        Text="Users" />
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Path=Id}" Value="True">
+                                <Setter TargetName="txt" Property="Text" Value="Companies" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </GroupStyle.HeaderTemplate>
+            </GroupStyle>
+            <Style x:Key="UserItemStyle" TargetType="{x:Type ListViewItem}">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="ItemsControl.AlternationIndex" Value="1" />
+                            <Condition Property="IsSelected" Value="False" />
+                            <Condition Property="IsMouseOver" Value="False" />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="#EEEEEEEE" />
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
+          
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Margin="0,2,4,2">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Total Users: " />
+                <ContentPresenter Content="{Binding Path=TotalUsers}"/>
+            </StackPanel>
+        </Grid>
+
+        <ListView 
+            AlternationCount="2" 
+            DataContext="{StaticResource UserGroups}" 
+            ItemContainerStyle="{StaticResource UserItemStyle}"
+            ItemsSource="{Binding}">
+            <ListView.GroupStyle>
+                <StaticResourceExtension ResourceKey="UserGroupStyle"/>
+            </ListView.GroupStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="用户ID" DisplayMemberBinding="{Binding Path=Id}"/>
+                    <GridViewColumn Header="密码" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="10"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0">
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource PasswordToStarConverter}">
+                                                <Binding Path="Password"/>
+                                                <Binding ElementName="isHidePassword" Path="IsChecked"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                    <ToggleButton Name="isHidePassword" Grid.Column="1" Width="10" Height="10" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </ToggleButton>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="消息">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label>发送:</Label>
+                                    <TextBlock VerticalAlignment="Center">
+                                        <Hyperlink Command="{Binding Path=ViewSendMsg}">
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Path=GetAllMSG,Mode=OneWay,Converter={StaticResource MSGGetSendNumConverter}}"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <Label>接收:</Label>
+                                    <TextBlock VerticalAlignment="Center">
+                                        <Hyperlink Command="{Binding Path=ViewRecvMsg}">
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Path=GetAllMSG,Mode=OneWay,Converter={StaticResource MSGGetRecvNumConverter}}"></TextBlock>
+                                        </Hyperlink>
+                                    </TextBlock>
+                                    <Label>未知:</Label>
+                                    <TextBlock VerticalAlignment="Center">0</TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="在线状态" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox Height="20" IsReadOnly="True" ItemsSource="{Binding LoginStateSource}" SelectedValuePath="ID" DisplayMemberPath="Info" SelectedItem="{Binding  SelectLoginState}" Style="{StaticResource ComboBoxStyle}"></ComboBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="操作">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="登陆" Margin="5,0,5,0" IsEnabled="{Binding Path=IsLogin,Mode=OneWay,Converter={StaticResource OppositeConverter}}" Command="{Binding Path=LoginCommand}"></Button>
+                                    <Button Content="下线" Margin="5,0,5,0" IsEnabled="{Binding Path=IsLogin}" Command="{Binding Path=LogoutCommand}"></Button>
+                                    <Button Content="删除" Margin="5,0,5,0" IsEnabled="{Binding Path=IsLogin,Mode=OneWay,Converter={StaticResource OppositeConverter}}" Command="{Binding Path=DelUserCommand}"></Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,50 @@
+package TransmitParameters;
+
+message Pack{	
+required	uint32	type	=1;
+optional	bytes	msg    	=2;
+}
+
+message unPack{
+required	uint32	type		=1;
+optional	uint32	seq			=2;
+optional	bool	isTurnIp	=3;
+optional	uint32	serverip	=4;
+optional	bool	is0836Suc	=5;
+optional	bool	is0828Suc	=6;
+optional	bytes	data		=7;
+}
+
+message ToPackArgu
+{
+required	uint32	type	=1;
+optional	uint32	seq		=2;
+optional	bytes	msg    	=3;
+}
+
+message PackArgus{
+required	bool	ispack		=1;
+optional	Pack	pack_data	=2;
+optional	unPack	unpack_data	=3;
+optional	ToPackArgu	toPackArgu=4;
+}
+
+message NetArgus{
+required	uint32	type		=1;
+required	uint32	socket		=2;
+optional	bytes	notify_msg	=3;	
+optional	bytes	send_recv_data	=4;
+}
+
+message LoginResult{
+optional	string	notifyMsg	=2;
+optional	bytes	codedata	=3;
+optional	string	codeurl		=4;
+}
+
+message CallArgus {
+required	bool	isCallSucess	=1;
+optional	PackArgus	pack_argu		=2;
+optional	NetArgus	net_argu		=3;
+optional	LoginResult	loginresult		=4;
+}

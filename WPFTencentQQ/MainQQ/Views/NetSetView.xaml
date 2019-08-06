@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="MainQQ.Views.NetSetView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Name="MyBind">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type ValidationError}">
+                    <TextBlock FontStyle="Italic" Foreground="Red" HorizontalAlignment="Right" Margin="0,1" Text="{Binding Path=ErrorContent}"/>
+                </DataTemplate>
+            </Grid.Resources>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap">Port (-1= Client mode):</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap">Maximum nr of connections:</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" TextWrapping="Wrap">Number of I/O workers:</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" TextWrapping="Wrap">Number of logical workers:</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" TextWrapping="Wrap">Max Number of unused Buffers  (0=infinte number):</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" TextWrapping="Wrap">Max Number of unused Clients (0=infinte number):</TextBlock>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" TextWrapping="Wrap">Number of pendling read loop:</TextBlock>
+            <TextBox Name="txtiPortNr" Text="{Binding Path=iPortNr,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiMaxNumberOfConnections" Text="{Binding Path=iMaxNumberOfConnections,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiNrOfIOWorkers" Text="{Binding Path=iNrOfIOWorkers,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiNrOfLogicalWorkers" Text="{Binding Path=iNrOfLogicalWorkers,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiMaxNrOfFreeBuff" Text="{Binding Path=iMaxNrOfFreeBuff,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiMaxNrOfFreeContext" Text="{Binding Path=iMaxNrOfFreeContext,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" ></TextBox>
+            <TextBox Name="txtiNrOfPendlingReads" Text="{Binding Path=iNrOfPendlingReads,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{x:Null}" Width="90" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1" ></TextBox>
+            <ContentPresenter Grid.Row="0" Grid.Column="2" Content="{Binding ElementName=txtiPortNr, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="1" Grid.Column="2" Content="{Binding ElementName=txtiMaxNumberOfConnections, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="2" Grid.Column="2" Content="{Binding ElementName=txtiNrOfIOWorkers, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="3" Grid.Column="2" Content="{Binding ElementName=txtiNrOfLogicalWorkers, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="4" Grid.Column="2" Content="{Binding ElementName=txtiMaxNrOfFreeBuff, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="5" Grid.Column="2" Content="{Binding ElementName=txtiMaxNrOfFreeContext, Path=(Validation.Errors).CurrentItem}"/>
+            <ContentPresenter Grid.Row="6" Grid.Column="2" Content="{Binding ElementName=txtiNrOfPendlingReads, Path=(Validation.Errors).CurrentItem}"/>
+        </Grid>
+        <GroupBox Grid.Row="1" Margin="5" Header="Package ordering">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding Path=bSendInOrder,UpdateSourceTrigger=PropertyChanged}" Margin="10,5,10,0">Make sending packages ordered.</CheckBox>
+                <CheckBox IsChecked="{Binding Path=bReadInOrder,UpdateSourceTrigger=PropertyChanged}" Margin="10,5,10,0">Make received packages ordered.(TRUE if the sever use several pendling reads.)</CheckBox>
+                <TextBlock Margin="10,5,10,0" TextWrapping="Wrap" Foreground="Red">Uncheck to increase the performance if you know that the order of the packages is not important.</TextBlock>
+            </StackPanel>
+        </GroupBox>
+        <Button Command="{Binding Path=SaveCommand}" IsEnabled="{Binding Path=bEnableSet}" Margin="0,5,20,5" HorizontalAlignment="Right" Width="80" Height="25" Grid.Row="2">保存</Button>
+    </Grid>
+</UserControl>
