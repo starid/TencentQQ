@@ -1,0 +1,698 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CSSO">
+      <UniqueIdentifier>{1a2a301c-d1ab-4b29-956f-9b1cfe7c16be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{0641e0c8-a46f-460e-a161-07e839beb04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{16fb9d11-4e28-4449-8306-ab113b3d575d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Beacon">
+      <UniqueIdentifier>{84bdaa27-3386-4443-8aeb-99d1ea8c5dfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{77549d8b-39dc-4f73-bcd3-7cb46bec663b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SummaryCard">
+      <UniqueIdentifier>{dc84d610-6832-4331-b3be-6f451bb13fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service">
+      <UniqueIdentifier>{ff3bdaf1-b8e7-4d1e-83ca-e43fadb5a938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service\LBS">
+      <UniqueIdentifier>{2bda37a9-3c36-44f8-a70b-55ab245af081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SecurityAccountServer">
+      <UniqueIdentifier>{ec882856-f233-4e55-8e84-1c57898151c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhoneContact">
+      <UniqueIdentifier>{547c8a69-365a-4913-8128-beea4cbbadc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PB">
+      <UniqueIdentifier>{2210d994-d4b2-46a5-8a2c-843e0921d91c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PB\addcontacts">
+      <UniqueIdentifier>{279e4d39-081f-4f7f-b568-20bede96584a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PB\profilecard">
+      <UniqueIdentifier>{e4facaf5-4291-4538-a1ed-c5ea5785d971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ClassFactory">
+      <UniqueIdentifier>{bc7d7c83-7024-4fb4-8ced-cde8a6495c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TLV">
+      <UniqueIdentifier>{fe22eb1c-2a75-4d48-9559-e79ba2583330}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{162dedee-7e1b-4094-a47d-313c98c7534e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EncounterSvc">
+      <UniqueIdentifier>{b0359956-e5e2-4554-8a6b-3047ea251792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NeighborComm">
+      <UniqueIdentifier>{e4e61755-7560-4abf-a9d9-7b45bc05d08b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NearbyPubAcct">
+      <UniqueIdentifier>{026a35bb-e329-419a-bf09-beaee6d5537c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="QQService">
+      <UniqueIdentifier>{97b5cfe7-7d22-488f-8890-f343389c1558}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CodecWarpper.cpp">
+      <Filter>CSSO</Filter>
+    </ClCompile>
+    <ClCompile Include="SSOData.cpp">
+      <Filter>CSSO</Filter>
+    </ClCompile>
+    <ClCompile Include="SSOHead.cpp">
+      <Filter>CSSO</Filter>
+    </ClCompile>
+    <ClCompile Include="SSOReqHead.cpp">
+      <Filter>CSSO</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigData.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonUnPack.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="TXCommPack.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="Beacon.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="BeaconUploadReq.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="BeaconUploadResp.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="Detail.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLog.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoB.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoC.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoF.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="QImei.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="Strategy.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestPacket.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="UniPacket.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="LogInfo.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="SignatureReq.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamIn.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamOut.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPack.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="PackReq.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="PhSigLcId.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigService.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="HeartBeat.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="CliLogSvc.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginTransemp.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportT1.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="GrayUinProCheck.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="UinCheck.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="GetTroopListReqV2.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="CfriendlistGetTroopListReqV2.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="SvcReqRegister.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="StatSvcRegister.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="StrupBuff.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="SDKConfReq.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="OidbSvc_0x7a2_0.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="SvcRespRegister.cpp">
+      <Filter>Beacon</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryCardReqSearch.cpp">
+      <Filter>SummaryCard</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryCardRespSearch.cpp">
+      <Filter>SummaryCard</Filter>
+    </ClCompile>
+    <ClCompile Include="LBSService.cpp">
+      <Filter>service\LBS</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileContactsFriendInfo.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileContactsNotFriendInfo.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="AddressBookItem.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeQueryQQMobileContactsV3.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeUpdateAddressBook.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeUploadAddressBook.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeUploadAddressBookV2.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeVerifySmscode.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="ResponeBindMobile.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestVerifyBindingSmscode.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RespondHeader.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RespondQueryQQBindingStat.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestQueryQQMobileContactsV3.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestUpdateAddressBook.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestUploadAddressBook.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestUploadAddressBookV2.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestQueryQQBindingStat.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestBindMobile.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestCancelBindMobile.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestHeader.cpp">
+      <Filter>SecurityAccountServer</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryCardReqHead.cpp">
+      <Filter>SummaryCard</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactBindServlet.cpp">
+      <Filter>PhoneContact</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryCardRespHead.cpp">
+      <Filter>SummaryCard</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Color.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Label.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Location.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\record.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\search.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="profilecard\comm.pb.cc">
+      <Filter>PB\profilecard</Filter>
+    </ClCompile>
+    <ClCompile Include="profilecard\ui.pb.cc">
+      <Filter>PB\profilecard</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassFactory.cpp">
+      <Filter>ClassFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Hardware.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ReqGetEncounterV2.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="ReqUserInfo.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="GPS.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="SOSO_Wifi.cpp">
+      <Filter>NeighborComm</Filter>
+    </ClCompile>
+    <ClCompile Include="SOSO_Cell.cpp">
+      <Filter>NeighborComm</Filter>
+    </ClCompile>
+    <ClCompile Include="UserData.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="ReqGetNearbyPubAcctInfo.cpp">
+      <Filter>NearbyPubAcct</Filter>
+    </ClCompile>
+    <ClCompile Include="LBSInfo.cpp">
+      <Filter>NearbyPubAcct</Filter>
+    </ClCompile>
+    <ClCompile Include="Attr.cpp">
+      <Filter>NearbyPubAcct</Filter>
+    </ClCompile>
+    <ClCompile Include="NeighborCommReqHeader.cpp">
+      <Filter>NeighborComm</Filter>
+    </ClCompile>
+    <ClCompile Include="RespGetEncounterV2.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="RespEncounterInfo.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="VipBaseInfo.cpp">
+      <Filter>QQService</Filter>
+    </ClCompile>
+    <ClCompile Include="RishState.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDetailLocalInfo.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="PengYouInfo.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="EctFragmentation.cpp">
+      <Filter>NeighborComm</Filter>
+    </ClCompile>
+    <ClCompile Include="SelfInfo.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="EntranceContent.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="NeighborBanner.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="NeighborAd.cpp">
+      <Filter>EncounterSvc</Filter>
+    </ClCompile>
+    <ClCompile Include="VipOpenInfo.cpp">
+      <Filter>QQService</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CodecWarpper.h">
+      <Filter>CSSO</Filter>
+    </ClInclude>
+    <ClInclude Include="SSOData.h">
+      <Filter>CSSO</Filter>
+    </ClInclude>
+    <ClInclude Include="SSOHead.h">
+      <Filter>CSSO</Filter>
+    </ClInclude>
+    <ClInclude Include="SSOReqHead.h">
+      <Filter>CSSO</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigData.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonUnPack.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="IPackData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="IUnPackData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="TXCommPack.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Beacon.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="BeaconUploadReq.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="BeaconUploadResp.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="Detail.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLog.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoB.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoC.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoF.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketType.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="QImei.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="Strategy.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestPacket.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="UniPacket.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="LogInfo.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="SignatureReq.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamIn.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamOut.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPack.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="PackReq.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="PhSigLcId.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigService.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="HeartBeat.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="CliLogSvc.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginTransemp.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportT1.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="GrayUinProCheck.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="UinCheck.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="GetTroopListReqV2.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="CfriendlistGetTroopListReqV2.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="SvcReqRegister.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="StatSvcRegister.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="StrupBuff.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="SDKConfReq.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="OidbSvc_0x7a2_0.h">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="SvcRespRegister.h">
+      <Filter>Beacon</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryCardReqSearch.h">
+      <Filter>SummaryCard</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryCardRespSearch.h">
+      <Filter>SummaryCard</Filter>
+    </ClInclude>
+    <ClInclude Include="LBSService.h">
+      <Filter>service\LBS</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileContactsFriendInfo.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileContactsNotFriendInfo.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressBookItem.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeVerifySmscode.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeQueryQQMobileContactsV3.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeUpdateAddressBook.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeUploadAddressBook.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeUploadAddressBookV2.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ResponeBindMobile.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RespondQueryQQBindingStat.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestUploadAddressBookV2.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestVerifyBindingSmscode.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RespondHeader.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestQueryQQMobileContactsV3.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestUpdateAddressBook.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestUploadAddressBook.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestQueryQQBindingStat.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestBindMobile.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestCancelBindMobile.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestHeader.h">
+      <Filter>SecurityAccountServer</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryCardReqHead.h">
+      <Filter>SummaryCard</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactBindServlet.h">
+      <Filter>PhoneContact</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryCardRespHead.h">
+      <Filter>SummaryCard</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Color.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Label.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Location.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\record.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\search.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="profilecard\comm.pb.h">
+      <Filter>PB\profilecard</Filter>
+    </ClInclude>
+    <ClInclude Include="profilecard\ui.pb.h">
+      <Filter>PB\profilecard</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassFactory.h">
+      <Filter>ClassFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Hardware.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="tlv.h">
+      <Filter>TLV</Filter>
+    </ClInclude>
+    <ClInclude Include="VerifyCodeInfo.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="ReqGetEncounterV2.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="ReqUserInfo.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="GPS.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="SOSO_Wifi.h">
+      <Filter>NeighborComm</Filter>
+    </ClInclude>
+    <ClInclude Include="SOSO_Cell.h">
+      <Filter>NeighborComm</Filter>
+    </ClInclude>
+    <ClInclude Include="UserData.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="ReqGetNearbyPubAcctInfo.h">
+      <Filter>NearbyPubAcct</Filter>
+    </ClInclude>
+    <ClInclude Include="LBSInfo.h">
+      <Filter>NearbyPubAcct</Filter>
+    </ClInclude>
+    <ClInclude Include="Attr.h">
+      <Filter>NearbyPubAcct</Filter>
+    </ClInclude>
+    <ClInclude Include="NeighborCommReqHeader.h">
+      <Filter>NeighborComm</Filter>
+    </ClInclude>
+    <ClInclude Include="RespGetEncounterV2.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="RespEncounterInfo.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="VipBaseInfo.h">
+      <Filter>QQService</Filter>
+    </ClInclude>
+    <ClInclude Include="RishState.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDetailLocalInfo.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="PengYouInfo.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="EctFragmentation.h">
+      <Filter>NeighborComm</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfInfo.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="EntranceContent.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="NeighborBanner.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="NeighborAd.h">
+      <Filter>EncounterSvc</Filter>
+    </ClInclude>
+    <ClInclude Include="VipOpenInfo.h">
+      <Filter>QQService</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

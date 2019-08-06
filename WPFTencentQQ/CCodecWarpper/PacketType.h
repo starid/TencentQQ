@@ -1,0 +1,10 @@
+#define	StructEventLog	0xF0
+#define StructStrategy	0xF1
+#define StructLogInfo	0xF2
+#define	StructInfoC		0xF3
+#define	StructInfoB		0xF4
+#define	StructInfoF		0xF5
+#define StructUinCheck	0xF6
+#define StructMobileContactsFriendInfo	0xF7
+#define StructMobileContactsNotFriendInfo	0xF8
+#define StructRespEncounterInfo				0xF9

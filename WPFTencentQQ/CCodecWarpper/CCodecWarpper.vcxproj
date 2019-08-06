@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{815167D6-0879-43A0-9A0B-3E326C8691C8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CCodecWarpper</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(SolutionDir)$(Configuration)\;$(SolutionDir)\json\lib;$(SolutionDir)\OpenPublicDLL\protobuflib\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\LibD\</OutDir>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\json\include;$(SolutionDir)\OpenPublicDLL\protobuflib;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\Lib\</OutDir>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\json\include;$(SolutionDir)\include_proto;</IncludePath>
+    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(SolutionDir)\json\lib;$(SolutionDir)\include_proto\Lib;</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PACKET_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(SolutionDir)\binD\$(ProjectName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PACKET_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(SolutionDir)\bin\$(ProjectName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="addcontacts\Color.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Label.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Location.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="addcontacts\record.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="addcontacts\search.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AddressBookItem.cpp" />
+    <ClCompile Include="Attr.cpp" />
+    <ClCompile Include="Beacon.cpp" />
+    <ClCompile Include="BeaconUploadReq.cpp" />
+    <ClCompile Include="BeaconUploadResp.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CfriendlistGetTroopListReqV2.cpp" />
+    <ClCompile Include="ClassFactory.cpp" />
+    <ClCompile Include="CliLogSvc.cpp" />
+    <ClCompile Include="CodecWarpper.cpp" />
+    <ClCompile Include="CommonUnPack.cpp" />
+    <ClCompile Include="ConfigData.cpp" />
+    <ClCompile Include="ConfigService.cpp" />
+    <ClCompile Include="ContactBindServlet.cpp" />
+    <ClCompile Include="Detail.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EctFragmentation.cpp" />
+    <ClCompile Include="EntranceContent.cpp" />
+    <ClCompile Include="EventLog.cpp" />
+    <ClCompile Include="GetTroopListReqV2.cpp" />
+    <ClCompile Include="GPS.cpp" />
+    <ClCompile Include="GrayUinProCheck.cpp" />
+    <ClCompile Include="Hardware.cpp" />
+    <ClCompile Include="HeartBeat.cpp" />
+    <ClCompile Include="InfoB.cpp" />
+    <ClCompile Include="InfoC.cpp" />
+    <ClCompile Include="InfoF.cpp" />
+    <ClCompile Include="LBSInfo.cpp" />
+    <ClCompile Include="LBSService.cpp" />
+    <ClCompile Include="LoginPack.cpp" />
+    <ClCompile Include="LogInfo.cpp" />
+    <ClCompile Include="LoginTransemp.cpp" />
+    <ClCompile Include="MobileContactsFriendInfo.cpp" />
+    <ClCompile Include="MobileContactsNotFriendInfo.cpp" />
+    <ClCompile Include="NeighborAd.cpp" />
+    <ClCompile Include="NeighborBanner.cpp" />
+    <ClCompile Include="NeighborCommReqHeader.cpp" />
+    <ClCompile Include="OidbSvc_0x7a2_0.cpp" />
+    <ClCompile Include="PackReq.cpp" />
+    <ClCompile Include="PengYouInfo.cpp" />
+    <ClCompile Include="PhSigLcId.cpp" />
+    <ClCompile Include="profilecard\comm.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="profilecard\ui.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="QImei.cpp" />
+    <ClCompile Include="ReportT1.cpp" />
+    <ClCompile Include="ReqGetEncounterV2.cpp" />
+    <ClCompile Include="ReqGetNearbyPubAcctInfo.cpp" />
+    <ClCompile Include="RequestBindMobile.cpp" />
+    <ClCompile Include="RequestCancelBindMobile.cpp" />
+    <ClCompile Include="RequestHeader.cpp" />
+    <ClCompile Include="RequestPacket.cpp" />
+    <ClCompile Include="RequestQueryQQBindingStat.cpp" />
+    <ClCompile Include="RequestQueryQQMobileContactsV3.cpp" />
+    <ClCompile Include="RequestUpdateAddressBook.cpp" />
+    <ClCompile Include="RequestUploadAddressBook.cpp" />
+    <ClCompile Include="RequestUploadAddressBookV2.cpp" />
+    <ClCompile Include="RequestVerifyBindingSmscode.cpp" />
+    <ClCompile Include="ReqUserInfo.cpp" />
+    <ClCompile Include="RespEncounterInfo.cpp" />
+    <ClCompile Include="RespGetEncounterV2.cpp" />
+    <ClCompile Include="RespondHeader.cpp" />
+    <ClCompile Include="RespondQueryQQBindingStat.cpp" />
+    <ClCompile Include="ResponeBindMobile.cpp" />
+    <ClCompile Include="ResponeQueryQQMobileContactsV3.cpp" />
+    <ClCompile Include="ResponeUpdateAddressBook.cpp" />
+    <ClCompile Include="ResponeUploadAddressBook.cpp" />
+    <ClCompile Include="ResponeUploadAddressBookV2.cpp" />
+    <ClCompile Include="ResponeVerifySmscode.cpp" />
+    <ClCompile Include="RishState.cpp" />
+    <ClCompile Include="SDKConfReq.cpp" />
+    <ClCompile Include="SelfInfo.cpp" />
+    <ClCompile Include="SignatureReq.cpp" />
+    <ClCompile Include="SOSO_Cell.cpp" />
+    <ClCompile Include="SOSO_Wifi.cpp" />
+    <ClCompile Include="SSOData.cpp" />
+    <ClCompile Include="SSOHead.cpp" />
+    <ClCompile Include="SSOReqHead.cpp" />
+    <ClCompile Include="StatSvcRegister.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Strategy.cpp" />
+    <ClCompile Include="StreamIn.cpp" />
+    <ClCompile Include="StreamOut.cpp" />
+    <ClCompile Include="StrupBuff.cpp" />
+    <ClCompile Include="SummaryCardReqHead.cpp" />
+    <ClCompile Include="SummaryCardReqSearch.cpp" />
+    <ClCompile Include="SummaryCardRespHead.cpp" />
+    <ClCompile Include="SummaryCardRespSearch.cpp" />
+    <ClCompile Include="SvcReqRegister.cpp" />
+    <ClCompile Include="SvcRespRegister.cpp" />
+    <ClCompile Include="TXCommPack.cpp" />
+    <ClCompile Include="UinCheck.cpp" />
+    <ClCompile Include="UniPacket.cpp" />
+    <ClCompile Include="UserData.cpp" />
+    <ClCompile Include="UserDetailLocalInfo.cpp" />
+    <ClCompile Include="VipBaseInfo.cpp" />
+    <ClCompile Include="VipOpenInfo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="addcontacts\Color.pb.h" />
+    <ClInclude Include="addcontacts\Label.pb.h" />
+    <ClInclude Include="addcontacts\Location.pb.h" />
+    <ClInclude Include="addcontacts\record.pb.h" />
+    <ClInclude Include="addcontacts\search.pb.h" />
+    <ClInclude Include="AddressBookItem.h" />
+    <ClInclude Include="Attr.h" />
+    <ClInclude Include="Beacon.h" />
+    <ClInclude Include="BeaconUploadReq.h" />
+    <ClInclude Include="BeaconUploadResp.h" />
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="CfriendlistGetTroopListReqV2.h" />
+    <ClInclude Include="ClassFactory.h" />
+    <ClInclude Include="CliLogSvc.h" />
+    <ClInclude Include="CodecWarpper.h" />
+    <ClInclude Include="CommonUnPack.h" />
+    <ClInclude Include="ConfigData.h" />
+    <ClInclude Include="ConfigService.h" />
+    <ClInclude Include="ContactBindServlet.h" />
+    <ClInclude Include="Detail.h" />
+    <ClInclude Include="EctFragmentation.h" />
+    <ClInclude Include="EntranceContent.h" />
+    <ClInclude Include="EventLog.h" />
+    <ClInclude Include="GetTroopListReqV2.h" />
+    <ClInclude Include="GPS.h" />
+    <ClInclude Include="GrayUinProCheck.h" />
+    <ClInclude Include="Hardware.h" />
+    <ClInclude Include="HeartBeat.h" />
+    <ClInclude Include="InfoB.h" />
+    <ClInclude Include="InfoC.h" />
+    <ClInclude Include="InfoF.h" />
+    <ClInclude Include="IPackData.h" />
+    <ClInclude Include="IUnPackData.h" />
+    <ClInclude Include="LBSInfo.h" />
+    <ClInclude Include="LBSService.h" />
+    <ClInclude Include="LoginPack.h" />
+    <ClInclude Include="LogInfo.h" />
+    <ClInclude Include="LoginTransemp.h" />
+    <ClInclude Include="MobileContactsFriendInfo.h" />
+    <ClInclude Include="MobileContactsNotFriendInfo.h" />
+    <ClInclude Include="NeighborAd.h" />
+    <ClInclude Include="NeighborBanner.h" />
+    <ClInclude Include="NeighborCommReqHeader.h" />
+    <ClInclude Include="OidbSvc_0x7a2_0.h" />
+    <ClInclude Include="PackReq.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="PacketType.h" />
+    <ClInclude Include="PengYouInfo.h" />
+    <ClInclude Include="PhSigLcId.h" />
+    <ClInclude Include="profilecard\comm.pb.h" />
+    <ClInclude Include="profilecard\ui.pb.h" />
+    <ClInclude Include="QImei.h" />
+    <ClInclude Include="ReportT1.h" />
+    <ClInclude Include="ReqGetEncounterV2.h" />
+    <ClInclude Include="ReqGetNearbyPubAcctInfo.h" />
+    <ClInclude Include="RequestBindMobile.h" />
+    <ClInclude Include="RequestCancelBindMobile.h" />
+    <ClInclude Include="RequestHeader.h" />
+    <ClInclude Include="RequestPacket.h" />
+    <ClInclude Include="RequestQueryQQBindingStat.h" />
+    <ClInclude Include="RequestQueryQQMobileContactsV3.h" />
+    <ClInclude Include="RequestUpdateAddressBook.h" />
+    <ClInclude Include="RequestUploadAddressBook.h" />
+    <ClInclude Include="RequestUploadAddressBookV2.h" />
+    <ClInclude Include="RequestVerifyBindingSmscode.h" />
+    <ClInclude Include="ReqUserInfo.h" />
+    <ClInclude Include="RespEncounterInfo.h" />
+    <ClInclude Include="RespGetEncounterV2.h" />
+    <ClInclude Include="RespondHeader.h" />
+    <ClInclude Include="RespondQueryQQBindingStat.h" />
+    <ClInclude Include="ResponeBindMobile.h" />
+    <ClInclude Include="ResponeQueryQQMobileContactsV3.h" />
+    <ClInclude Include="ResponeUpdateAddressBook.h" />
+    <ClInclude Include="ResponeUploadAddressBook.h" />
+    <ClInclude Include="ResponeUploadAddressBookV2.h" />
+    <ClInclude Include="ResponeVerifySmscode.h" />
+    <ClInclude Include="RishState.h" />
+    <ClInclude Include="SDKConfReq.h" />
+    <ClInclude Include="SelfInfo.h" />
+    <ClInclude Include="SignatureReq.h" />
+    <ClInclude Include="SOSO_Cell.h" />
+    <ClInclude Include="SOSO_Wifi.h" />
+    <ClInclude Include="SSOData.h" />
+    <ClInclude Include="SSOHead.h" />
+    <ClInclude Include="SSOReqHead.h" />
+    <ClInclude Include="StatSvcRegister.h" />
+    <ClInclude Include="Strategy.h" />
+    <ClInclude Include="StreamIn.h" />
+    <ClInclude Include="StreamOut.h" />
+    <ClInclude Include="StrupBuff.h" />
+    <ClInclude Include="SummaryCardReqHead.h" />
+    <ClInclude Include="SummaryCardReqSearch.h" />
+    <ClInclude Include="SummaryCardRespHead.h" />
+    <ClInclude Include="SummaryCardRespSearch.h" />
+    <ClInclude Include="SvcReqRegister.h" />
+    <ClInclude Include="SvcRespRegister.h" />
+    <ClInclude Include="tlv.h" />
+    <ClInclude Include="TXCommPack.h" />
+    <ClInclude Include="UinCheck.h" />
+    <ClInclude Include="UniPacket.h" />
+    <ClInclude Include="UserData.h" />
+    <ClInclude Include="UserDetailLocalInfo.h" />
+    <ClInclude Include="VerifyCodeInfo.h" />
+    <ClInclude Include="VipBaseInfo.h" />
+    <ClInclude Include="VipOpenInfo.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
