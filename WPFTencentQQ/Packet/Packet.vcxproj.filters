@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{3fff89e0-5ecb-4fcc-81d5-a07d2eccaa64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{932e81ba-a897-4af8-be1d-296903825efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ClassModel">
+      <UniqueIdentifier>{f2a36c2f-4c9d-4697-9fd1-437da8f5b41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{0fa587da-a0f2-4644-bda3-3bc10945f439}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="Packet.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginReq.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="TXCommPack.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigData.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonUnPack.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="CommReq.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticVar.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="FolderList.cpp">
+      <Filter>ClassModel</Filter>
+    </ClCompile>
+    <ClCompile Include="InterFaceApi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CallArgus.pb.cc">
+      <Filter>Common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ICHeadData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="IPackData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="IUnPackData.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginHead.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginReq.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="TXCommPack.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigData.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonUnPack.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="CommReq.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="CommHead.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassModel.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="SeqSerial.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketRet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="FolderList.h">
+      <Filter>ClassModel</Filter>
+    </ClInclude>
+    <ClInclude Include="InterFaceApi.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="CallArgus.pb.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="protocol_type.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
