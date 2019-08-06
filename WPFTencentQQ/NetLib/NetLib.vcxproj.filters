@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="IOCP">
+      <UniqueIdentifier>{9d4ec033-2e41-4b89-b6c4-b98d467b0338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Net">
+      <UniqueIdentifier>{01d09d83-7ecf-49b1-925a-02d47292fdf2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="NetLib.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NetLib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyIOCP.h">
+      <Filter>IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCPS.h">
+      <Filter>IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCPBuffer.h">
+      <Filter>IOCP</Filter>
+    </ClInclude>
+    <ClInclude Include="TXTcpSend.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="TXUdpSend.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+    <ClInclude Include="NetHttp.h">
+      <Filter>Net</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyIOCP.cpp">
+      <Filter>IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCPS.cpp">
+      <Filter>IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCPBuffer.cpp">
+      <Filter>IOCP</Filter>
+    </ClCompile>
+    <ClCompile Include="NetLib.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTcpSend.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="TXUdpSend.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+    <ClCompile Include="NetHttp.cpp">
+      <Filter>Net</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

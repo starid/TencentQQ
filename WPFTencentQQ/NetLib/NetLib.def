@@ -1,0 +1,8 @@
+LIBRARY
+EXPORTS
+StartTheSystem
+EndTheSystem
+OnConnectA
+OnDisconnect
+SendPacket
+ChangeNotifyWnd
