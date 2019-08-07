@@ -1,0 +1,15 @@
+package AccountSearchPb;
+
+import "record.proto";
+import "Location.proto";
+
+message search{
+	optional int32	start	=1;
+	optional uint32	count	=2;
+	optional uint32	end	=3;
+	optional string	keyword	=4;
+	repeated record	list	=5;
+	repeated string highlight=6;
+	optional Location msg_user_location=10;
+	optional bool bool_location_group=11[default=false];
+}

@@ -1,0 +1,11 @@
+package AccountSearchPb;
+
+import "Color.proto";
+
+message Label{
+	optional bytes	bytes_name=1;
+	optional Color	text_color=2;
+	optional Color	edging_color=3;
+	optional uint32	uint32_label_attr=4;
+	optional uint32 uint32_label_type=5;	
+}

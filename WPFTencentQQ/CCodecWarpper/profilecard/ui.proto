@@ -1,0 +1,8 @@
+package SummaryCardBusiEntry;
+
+message ui{
+	optional string	url	=1;
+	optional string	title	=2;
+	optional string content	=3;
+	optional string jump_url=4;
+}

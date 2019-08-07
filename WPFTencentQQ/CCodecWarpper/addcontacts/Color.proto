@@ -1,0 +1,7 @@
+package AccountSearchPb;
+
+message Color{
+	optional uint32	uint32_r=1[default=0];
+	optional uint32	uint32_g=2[default=0];
+	optional uint32	uint32_b=3[default=0];
+}

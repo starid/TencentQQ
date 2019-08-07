@@ -1,0 +1,31 @@
+package AccountSearchPb;
+
+import "Label.proto";
+
+message record{
+	optional uint64	uin	=1;
+	optional uint64 code	=2;
+	enum Source {
+    		UNIVERSAL = 1;
+  		}
+	optional Source	source	=3[default=UNIVERSAL];
+	optional string name	=4;
+	optional uint32	sex	=5;
+	optional uint32 age	=6;
+	optional string account	=7;
+	optional string brief	=8;
+	optional uint32 number	=9;
+	optional uint64	flag	=10;
+	optional uint64 relation =11;
+	optional string mobile	=12;
+	optional bytes	sign	=13;
+	optional uint32	country	=14;
+	optional uint32	province =15;
+	optional uint32	city	=16;
+	optional uint32 class_index=17;
+	optional string class_name=18;
+	optional string country_name=19;
+	optional string province_name=20;
+	optional string city_name=21;
+	optional Label	msg_group_labels=22;	
+}

@@ -1,0 +1,6 @@
+package AccountSearchPb;
+
+message Location{
+	optional double	double_latitude=1[default=0.0];
+	optional double	double_longitude=2[default=0.0];
+}
