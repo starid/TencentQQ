@@ -87,7 +87,7 @@ void CCliLogSvc::EncodeBody(CTXCommPack &p)
 
 	JCE::JCEString	key1;
 	key1.value("P_CliOper");
-	mStrupBuff.a._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p2));
+	mStrupBuff.a._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p2));
 	mStrupBuff.b.value("");
 	mStrupBuff.c.value(0x2);
 	mStream1.write(&mStrupBuff,0);
@@ -95,7 +95,7 @@ void CCliLogSvc::EncodeBody(CTXCommPack &p)
 	p1->value(mStream1.getByteBuffer());
 	JCE::JCEMap map1;
 	key1.value("Data");
-	map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p1));
+	map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p1));
 	mStream1.clearbs();
 	mStream1.write(&map1,0);
 

@@ -5,7 +5,7 @@
 #include "NickNameQuery.h"
 #include "afxdialogex.h"
 #include"../CCodecWarpper/PackReq.h"
-#include"../NetLib/NetLib.h"
+#include<NetLib.h>
 #include"UserMsg.h"
 #include"../UtilLib/HelpFunc.h"
 #include"../CCodecWarpper/ResponeUploadAddressBookV2.h"
@@ -69,7 +69,7 @@ void CNickNameQuery::OnBnClickedButton1()
 	mPack.SetPacketType(account_RequestUploadAddressBookV2);//account_RequestUploadAddressBookV2,account_RequestUpdateAddressBook
 	mPack.pConfig=pConfig;
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 afx_msg LRESULT CNickNameQuery::OnReceivedMsg(WPARAM wParam, LPARAM lParam)

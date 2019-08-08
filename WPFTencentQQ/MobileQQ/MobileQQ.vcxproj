@@ -43,10 +43,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(SolutionDir)\openssl\lib\VC;$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(LibraryPath);$(SolutionDir)\OpenPublicDLL\NetLibCpp\LibD</LibraryPath>
     <EmbedManifest>true</EmbedManifest>
-    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(SolutionDir)\openssl\include;$(SolutionDir)\include_proto;$(IncludePath)</IncludePath>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(IncludePath);$(SolutionDir)\OpenPublicDLL\protobuflib;$(SolutionDir)\OpenPublicDLL\NetLibCpp\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -64,6 +64,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(SolutionDir)\binD\$(ProjectName)$(TargetExt)</OutputFile>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -161,7 +162,9 @@
     <ClCompile Include="NickNameQuery.cpp" />
     <ClCompile Include="OwnerDrawListBox.cpp" />
     <ClCompile Include="OwnerDrawTreeCtrl.cpp" />
-    <ClCompile Include="QQ.cpp" />
+    <ClCompile Include="QQ.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="QQDlg.cpp" />
     <ClCompile Include="SearchDlg.cpp" />
     <ClCompile Include="SeqSerial.cpp" />

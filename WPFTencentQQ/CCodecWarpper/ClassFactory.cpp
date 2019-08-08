@@ -117,7 +117,7 @@ void CClassFactory::SetCReqGetEncounterV2(CReqGetEncounterV2 &mReqGetEncounterV2
 	JCE::JCEMap	Map1;
 	JCE::JCEString strKey;
 	strKey.value("nearby_pubacct");
-	Map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(strKey,p1));
+	Map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&strKey,p1));
 	mStream1.clearbs();
 	mStream1.write(&Map1,0);
 	//·â×°UniPacket

@@ -123,6 +123,9 @@
     <ClCompile Include="MyLog.cpp">
       <Filter>Assistant</Filter>
     </ClCompile>
+    <ClCompile Include="GlobeVar.cpp">
+      <Filter>Assistant</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="QQ.rc">

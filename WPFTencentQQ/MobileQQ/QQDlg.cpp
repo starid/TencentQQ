@@ -436,7 +436,7 @@ afx_msg LRESULT COffineQQDlg::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			Config.mRegisterCmd=CmdOnLine;
 			p->pConfig=&Config;
 			p->PackData();
-			SendPacket(Config.m_iCurrentClientID,&(p->pack));
+			SendPacket(Config.m_iCurrentClientID,(unsigned char*)p->pack.contents(), p->pack.size());
 			delete p;
 		}break;
 	case StatSvc_register:
@@ -685,7 +685,7 @@ void COffineQQDlg::InitSendPacket()
 	p->SetSeq(mSeqSerial.GetNexSeq());
 	p->pConfig=&Config;
 	p->PackData();
-	SendPacket(Config.m_iCurrentClientID,&(p->pack));
+	SendPacket(Config.m_iCurrentClientID, (unsigned char*)p->pack.contents(), p->pack.size());
 	delete p;
 	//·¢ËÍGrayUinPro_Check
 	//p=new CPackReq();
@@ -704,7 +704,7 @@ void COffineQQDlg::InitSendPacket()
 	mPack.SetSeq(mSeqSerial.GetNexSeq(CSeqSerial::initial_RequestQueryQQBindingStat));
 	mPack.pConfig=&Config;
 	mPack.PackData();
-	SendPacket(Config.m_iCurrentClientID,&(mPack.pack));
+	SendPacket(Config.m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 BOOL COffineQQDlg::SetHeartPacket()
@@ -867,7 +867,7 @@ void COffineQQDlg::OnOffineLine()
 	Config.mRegisterCmd=CmdOffLine;
 	mPack.pConfig=&Config;
 	mPack.PackData();
-	SendPacket(Config.m_iCurrentClientID,&(mPack.pack));
+	SendPacket(Config.m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 /*µÇÂ½³É¹¦*/

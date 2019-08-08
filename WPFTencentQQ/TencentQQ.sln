@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetLib", "NetLib\NetLib.vcxproj", "{38C59DDD-08C8-4E49-A227-A9D601ECC52D}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UtilLib", "UtilLib\UtilLib.vcxproj", "{AEC1B151-B91A-40C6-A2B4-EB724937680F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CipherLib", "CipherLib\CipherLib.vcxproj", "{0395923A-0561-49A6-9971-EFDB60E4EE7E}"
@@ -44,26 +42,6 @@ Global
 		Template|x86 = Template|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug_Unicode|Mixed Platforms.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug_Unicode|Win32.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug_Unicode|Win32.Build.0 = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug_Unicode|x86.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug|Win32.Build.0 = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Debug|x86.ActiveCfg = Debug|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release_Unicode|Mixed Platforms.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release_Unicode|Win32.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release_Unicode|Win32.Build.0 = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release_Unicode|x86.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release|Win32.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release|Win32.Build.0 = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Release|x86.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Template|Mixed Platforms.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Template|Win32.ActiveCfg = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Template|Win32.Build.0 = Release|Win32
-		{38C59DDD-08C8-4E49-A227-A9D601ECC52D}.Template|x86.ActiveCfg = Release|Win32
 		{AEC1B151-B91A-40C6-A2B4-EB724937680F}.Debug_Unicode|Mixed Platforms.ActiveCfg = Debug|Win32
 		{AEC1B151-B91A-40C6-A2B4-EB724937680F}.Debug_Unicode|Win32.ActiveCfg = Debug|Win32
 		{AEC1B151-B91A-40C6-A2B4-EB724937680F}.Debug_Unicode|Win32.Build.0 = Debug|Win32

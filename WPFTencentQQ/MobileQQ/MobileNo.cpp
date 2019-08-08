@@ -5,7 +5,7 @@
 #include "MobileNo.h"
 #include "afxdialogex.h"
 #include"../CCodecWarpper/PackReq.h"
-#include"../NetLib/NetLib.h"
+#include<NetLib.h>
 #include"UserMsg.h"
 #include"../CCodecWarpper/ResponeUploadAddressBookV2.h"
 #include"../CCodecWarpper/RespondQueryQQBindingStat.h"
@@ -118,7 +118,7 @@ void CMobileNo::OnBnClickedButton1()
 				pConfig->mRequestBindMobile.nationCode.value(strnationCode);
 				mPack.pConfig=pConfig;
 				mPack.PackData();
-				SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+				SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 			}else
 			{
 				AfxMessageBox("文本框输入为空");
@@ -161,7 +161,7 @@ void CMobileNo::OnBnClickedButton1()
 					pConfig->mRequestBindMobile.nationCode.value(strnationCode);
 					mPack.pConfig=pConfig;
 					mPack.PackData();
-					SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+					SendPacket(pConfig->m_iCurrentClientID, (unsigned char*)mPack.pack.contents(), mPack.pack.size());
 				}else
 				{
 					AfxMessageBox("文本框输入为空");
@@ -316,7 +316,7 @@ void CMobileNo::On32795()
 	mPack.SetSeq(mSeqSerial.GetNexSeq(CSeqSerial::CMobileNo_RequestQueryQQBindingStat));
 	mPack.pConfig=pConfig;
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID, (unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 //绑定号码查询
@@ -326,7 +326,7 @@ void CMobileNo::On32796()
 	mPack.SetPacketType(account_RequestQueryQQMobileContactsV3);
 	mPack.pConfig=pConfig;
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID, (unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 //清空列表

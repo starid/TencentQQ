@@ -5,7 +5,7 @@
 #include "SearchDlg.h"
 #include "afxdialogex.h"
 #include"../CCodecWarpper/PackReq.h"
-#include"../NetLib/NetLib.h"
+#include<NetLib.h>
 #include"UserMsg.h"
 #include"../CCodecWarpper/ClassFactory.h"
 #include"../UtilLib/HelpFunc.h"
@@ -62,7 +62,7 @@ void CSearchDlg::OnBnClickedButton1()
 	mClassFactory.SetCSummaryCardReqSearch(mSummaryCardReqSearch,strKeyWord.c_str(),"+86");//其他信息暂时不进行输入
 	mPack.pConfig=pConfig;
 	mPack.PackData(&mSummaryCardReqSearch);
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 

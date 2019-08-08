@@ -1,7 +1,7 @@
 #include"inflate.h"
 #include <Windows.h>
 
-#pragma comment(lib,"D:\\³ÌÐò\\WPFTencentQQ\\OpenPublicDLL\\zlib128\\lib\\zdll.lib")
+#pragma comment(lib,"zdll.lib")
 
 
 int zcompress(Bytef *data, uLong ndata,Bytef *zdata, uLong *nzdata)

@@ -75,7 +75,7 @@ void CConfigService::EncodeBody(CTXCommPack &p)
 	ByteBuffer b;
 	b.append(htons(p1->value()));
 	p2->value(b);
-	map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p2));
+	map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p2));
 	//·â×°SDKConfReq
 	SDKConfReq	mSdkReq;
 	mSdkReq.a.value(0);
@@ -87,7 +87,7 @@ void CConfigService::EncodeBody(CTXCommPack &p)
 	key1.value("SDKConfReq");
 	p2=static_cast<JCE::JCEByteArray *>(mStream1.ObjectAlloc(JCETypeJCEByteArray));
 	p2->value(mStream1.getByteBuffer());
-	map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p2));
+	map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p2));
 	mStream1.clearbs();
 	mStream1.write(&map1,0);
 

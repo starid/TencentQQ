@@ -71,7 +71,7 @@ void Dlg_Login::OnBnClickedButton1()
 	_login_packet.PackData();            //封包
 
 	m_List.AddString("发送ping数据包...");
-	SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 }
 
 
@@ -93,9 +93,7 @@ BOOL Dlg_Login::OnInitDialog()
 		m_ConfigDlg.m_iMaxNrOfFreeContext,
 		m_ConfigDlg.m_iSendInOrder,
 		m_ConfigDlg.m_bReadInOrder,
-		m_ConfigDlg.m_iNrPendlingReads,
-		m_hWnd,
-		WM_RECEIVED_MSG));//启动iocp系统
+		m_ConfigDlg.m_iNrPendlingReads));//启动iocp系统
 		
 	//取的congfig
 	m_Ini.GetStrKey("NetConfig.ini","udpserver","url",pConfig->host);
@@ -213,7 +211,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 				m_List.AddString("ping数据包发送失败...");
 				OnDisconnect(pConfig->m_iCurrentClientID);
 				packet->pConfig->restart();
-				OnConnectA("",packet->pConfig->port);
+				OnConnectA(packet->pConfig->m_iCurrentClientID,"",packet->pConfig->port,1);
 				AfxMessageBox("网络暂时不通，请稍后再试");
 				EndDialog(0);
 				return 0;
@@ -225,7 +223,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			_login_packet.pConfig=pConfig;
 			_login_packet.PackData();
 			//发送0836数据包
-			SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+			SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 		}break;
 	case Type0836:
 		{
@@ -266,7 +264,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 							pPacket->SetPacketType(Type0104);
 							pPacket->pConfig=pConfig;
 							pPacket->PackData();
-							SendPacket(pConfig->m_iCurrentClientID,&(pPacket->pack));
+							SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)pPacket->pack.contents(), pPacket->pack.size());
 							delete pPacket;pPacket=NULL;
 							
 							//发送00ba数据包,请求另一部分验证码
@@ -275,7 +273,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 							pConfig->isNeedCode=false;		//第一次不需要验证码
 							pPacket->pConfig=pConfig;
 							pPacket->PackData();
-							SendPacket(pConfig->m_iCurrentClientID,&(pPacket->pack));
+							SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)pPacket->pack.contents(), pPacket->pack.size());
 
 							delete pPacket;pPacket=NULL;
 						}break;
@@ -297,7 +295,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 							_login_packet.pConfig=pConfig;
 							_login_packet.PackData();
 							//发送0836数据包
-							SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+							SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 
 						}break;
 					default:
@@ -335,7 +333,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 				_login_packet.pConfig=pConfig;
 				_login_packet.PackData();
 				//发送0836数据包
-				SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+				SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 			}
 		}break;
 	case Type0104:
@@ -367,7 +365,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 				pConfig->isNeedCode=true;
 				_login_packet.pConfig=pConfig;
 				_login_packet.PackData();
-				SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+				SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 			}else if(i==0x14)
 			{
 				//第二次带验证码
@@ -383,7 +381,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 					_login_packet.pConfig=pConfig;
 					_login_packet.PackData();
 					//发送0836数据包
-					SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+					SendPacket(pConfig->m_iCurrentClientID,(unsigned char *)_login_packet.pack.contents(), _login_packet.pack.size());
 				}else
 				{
 					m_List.AddString("验证码未通过，重新验证...");
@@ -395,7 +393,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 					pConfig->isNeedCode=false;
 					Packet.pConfig=pConfig;
 					Packet.PackData();
-					SendPacket(pConfig->m_iCurrentClientID,&(Packet.pack));
+					SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)Packet.pack.contents(), Packet.pack.size());
 				}
 			}
 		}break;

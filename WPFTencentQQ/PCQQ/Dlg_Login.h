@@ -28,7 +28,7 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 public:
-	Ini m_Ini;
+	CSimpleIni m_Ini;
 	// 用户账户
 	CString m_Account;
 	// 用户密码

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\程序\WPFTencentQQ\MainQQ\obj\x86\Debug\
+D:\程序\TencentQQ\trunk\WPFTencentQQ\MainQQ\obj\x86\Debug\
 MainQQ
 none
 false
 DEBUG;TRACE
-D:\程序\WPFTencentQQ\MainQQ\App.xaml
+D:\程序\TencentQQ\trunk\WPFTencentQQ\MainQQ\App.xaml
 61850609248
 
 351824819978
-15532774449
+151048554051
 Views\AllUsersView.xaml;MainWindow.xaml;Views\MsgView.xaml;Views\NetSetView.xaml;Views\UserView.xaml;MainWindowResources.xaml;
 
 False

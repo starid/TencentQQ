@@ -72,7 +72,7 @@ void Dlg_Login::OnBnClickedButton1()
 	strLog.Format("准备连入 %s:%d",ip,pConfig->port);
 	m_List.AddString((LPCTSTR)strLog);
 
-	if(!OnConnectA(ip,pConfig->port))
+	if(!OnConnectA(GlobeVar::MainCallBackHandle,(unsigned char*)ip,pConfig->port,1))
 	{
 		GlobeVar::Error_Check(ERR_NORESPOND);
 	}
@@ -97,8 +97,7 @@ BOOL Dlg_Login::OnInitDialog()
 		m_iMaxNrOfFreeContext,
 		m_iSendInOrder,
 		m_bReadInOrder,
-		m_iNrOfPendlingReads,m_hWnd,
-		WM_RECEIVED_MSG))
+		m_iNrOfPendlingReads))
 	{
 		GlobeVar::Error_Check(ERR_NORESPOND);
 	}
@@ -116,22 +115,22 @@ BOOL Dlg_Login::OnInitDialog()
 	pConfig->port=mSimpleIniA.GetLongValue("MobileTcpServer","port");
 	pConfig->net_type=NET_TCP;                   //设置网络类型
 
-	CEcdh _ecdh;
-	_ecdh.ecdh_init();
-	if(!_ecdh.ecdh_generate_publicKey())
-	{
-		GlobeVar::Error_Check(ERR_ECDH_ERROR);
-	}
-	
-#ifdef TEST_ECDH
-	memcpy(pConfig->stKey,ST_KEY,sizeof(ST_KEY));
-	memcpy(pConfig->ecdh_key,ECDH_KEY,sizeof(ECDH_KEY));
-#else
-	memcpy(pConfig->stKey,_ecdh.stKey,sizeof(_ecdh.stKey));
-	//手机对计算出来的key求了一次MD5
-	CMd5 mMd5;
-	mMd5.GetMd5(pConfig->ecdh_key,sizeof(pConfig->ecdh_key),_ecdh.key,sizeof(_ecdh.key));
-#endif
+////	CEcdh _ecdh;
+////	_ecdh.ecdh_init();
+////	if(!_ecdh.ecdh_generate_publicKey())
+////	{
+////		GlobeVar::Error_Check(ERR_ECDH_ERROR);
+////	}
+////	
+////#ifdef TEST_ECDH
+////	memcpy(pConfig->stKey,ST_KEY,sizeof(ST_KEY));
+////	memcpy(pConfig->ecdh_key,ECDH_KEY,sizeof(ECDH_KEY));
+////#else
+////	memcpy(pConfig->stKey,_ecdh.stKey,sizeof(_ecdh.stKey));
+////	//手机对计算出来的key求了一次MD5
+////	CMd5 mMd5;
+////	mMd5.GetMd5(pConfig->ecdh_key,sizeof(pConfig->ecdh_key),_ecdh.key,sizeof(_ecdh.key));
+////#endif
 
 	StatusLogText("Dlg_Login ecdh初始化完毕");
 	DataLogBytes("ecdh stKey",(unsigned char*)pConfig->stKey,sizeof(pConfig->stKey));
@@ -188,7 +187,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			_login_packet.pConfig=pConfig;
 			_login_packet.PackData();            //封包
 			m_List.AddString("发送ping数据包...");
-			SendPacket(pConfig->m_iCurrentClientID,&(_login_packet.pack));
+			SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet.pack.contents(), _login_packet.pack.size());
 
 			m_ReceiveMsgLock.Unlock();
 			return 0;
@@ -255,7 +254,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			_login_packet2.pack.rpos(0);
 			_login_packet1.Merge(_login_packet2.pack);
 			//发送数据包
-			SendPacket(pConfig->m_iCurrentClientID,&(_login_packet1.pack));
+			SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)_login_packet1.pack.contents(), _login_packet1.pack.size());
 		}break;
 	//case PhSigLcId_Check:
 	case ConfigService_ClientReq:
@@ -268,7 +267,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			p->SetSeq(mSeqSerial.GetNexSeq());
 			p->pConfig=pConfig;
 			p->PackData();
-			SendPacket(pConfig->m_iCurrentClientID,&(p->pack));
+			SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)p->pack.contents(), p->pack.size());
 			delete p;
 
 			p=new CPackReq();
@@ -276,7 +275,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			p->SetSeq(mSeqSerial.GetNexSeq());
 			p->pConfig=pConfig;
 			p->PackData();
-			SendPacket(pConfig->m_iCurrentClientID,&(p->pack));
+			SendPacket(pConfig->m_iCurrentClientID, (unsigned char*)p->pack.contents(), p->pack.size());
 			delete p;
 
 			p=new CPackReq();
@@ -284,7 +283,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 			p->SetSeq(mSeqSerial.GetNexSeq());
 			p->pConfig=pConfig;
 			p->PackData();
-			SendPacket(pConfig->m_iCurrentClientID,&(p->pack));
+			SendPacket(pConfig->m_iCurrentClientID, (unsigned char*)p->pack.contents(), p->pack.size());
 			delete p;
 		}break;
 	case wtlogin_login:
@@ -318,7 +317,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 						pConfig->mCodePngData.isNeedCode=true;
 						pack.pConfig=pConfig;
 						pack.PackData();
-						SendPacket(pConfig->m_iCurrentClientID,&(pack.pack));
+						SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)pack.pack.contents(), pack.pack.size());
 					}break;
 				default:
 					{
@@ -335,7 +334,7 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 				p->SetSeq(mSeqSerial.GetNexSeq());
 				p->pConfig=pConfig;
 				p->PackData();
-				SendPacket(pConfig->m_iCurrentClientID,&(p->pack));
+				SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)p->pack.contents(), p->pack.size());
 				delete p;
 
 				int nLen = MultiByteToWideChar(CP_UTF8, 0, (LPTSTR)(&pConfig->UserName[1]), pConfig->UserName[0], NULL, 0);  

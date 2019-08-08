@@ -1,6 +1,7 @@
 #include "Stdafx.h"
 #include <AfxDllx.h>
 #include "SkinUI.h"
+#include <detours.h>
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -9,14 +10,14 @@ static ULONG_PTR g_lGdiPlusToken=0L;
 static AFX_EXTENSION_MODULE SkinUIDLL={NULL,NULL};
 
 // 申明钩子
-DETOUR_TRAMPOLINE(int   WINAPI SetScrollInfoT(HWND, int, LPCSCROLLINFO, BOOL), SetScrollInfo)
-DETOUR_TRAMPOLINE(BOOL  WINAPI GetScrollInfoT(HWND, int, LPSCROLLINFO), GetScrollInfo)
-DETOUR_TRAMPOLINE(int   WINAPI SetScrollPosT(HWND, int, int, BOOL), SetScrollPos)
-DETOUR_TRAMPOLINE(int   WINAPI GetScrollPosT(HWND, int), GetScrollPos)
-DETOUR_TRAMPOLINE(BOOL  WINAPI GetScrollRangeT(HWND, int, LPINT, LPINT), GetScrollRange)
-DETOUR_TRAMPOLINE(BOOL  WINAPI SetScrollRangeT(HWND, int, int, int, BOOL), SetScrollRange)
-DETOUR_TRAMPOLINE(BOOL  WINAPI ShowScrollBarT(HWND, int, BOOL), ShowScrollBar)
-DETOUR_TRAMPOLINE(BOOL  WINAPI EnableScrollBarT(HWND, UINT, UINT), EnableScrollBar)
+static int (WINAPI * SetScrollInfoT)(HWND, int, LPCSCROLLINFO, BOOL) = SetScrollInfo;
+static int (WINAPI * GetScrollInfoT)(HWND, int, LPSCROLLINFO) = GetScrollInfo;
+static int (WINAPI * SetScrollPosT)(HWND, int, int, BOOL) = SetScrollPos;
+static int (WINAPI * GetScrollPosT)(HWND, int) = GetScrollPos;
+static int (WINAPI * GetScrollRangeT)(HWND, int, LPINT, LPINT) = GetScrollRange;
+static int (WINAPI * SetScrollRangeT)(HWND, int, int, int, BOOL) = SetScrollRange;
+static int (WINAPI * ShowScrollBarT)(HWND, int, BOOL) = ShowScrollBar;
+static int (WINAPI * EnableScrollBarT)(HWND, UINT, UINT) = EnableScrollBar;
 
 
 int WINAPI SetScrollInfoD(HWND hwnd, int fnBar, LPCSCROLLINFO lpsi, BOOL bRedraw)
@@ -86,6 +87,7 @@ BOOL WINAPI EnableScrollBarD(HWND hwnd, UINT wSBflags, UINT wArrows)
 extern "C" int APIENTRY
 DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
+	LONG error;
 	// 如果使用 lpReserved，请将此移除
 	UNREFERENCED_PARAMETER(lpReserved);
 
@@ -98,15 +100,19 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 		GdiplusStartupInput StartupInput;
 		GdiplusStartup(&g_lGdiPlusToken,&StartupInput,NULL);
 
+		DetourRestoreAfterWith();
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
 		//加载钩子
-		DetourFunctionWithTrampoline((PBYTE)SetScrollInfoT, (PBYTE)SetScrollInfoD);
-		DetourFunctionWithTrampoline((PBYTE)GetScrollInfoT, (PBYTE)GetScrollInfoD);
-		DetourFunctionWithTrampoline((PBYTE)SetScrollPosT, (PBYTE)SetScrollPosD);
-		DetourFunctionWithTrampoline((PBYTE)GetScrollPosT, (PBYTE)GetScrollPosD);
-		DetourFunctionWithTrampoline((PBYTE)SetScrollRangeT, (PBYTE)SetScrollRangeD);
-		DetourFunctionWithTrampoline((PBYTE)GetScrollRangeT, (PBYTE)GetScrollRangeD);
-		DetourFunctionWithTrampoline((PBYTE)ShowScrollBarT, (PBYTE)ShowScrollBarD);
-		DetourFunctionWithTrampoline((PBYTE)EnableScrollBarT, (PBYTE)EnableScrollBarD);
+		DetourAttach(&(PVOID&)SetScrollInfoT, SetScrollInfoD);
+		DetourAttach(&(PVOID&)GetScrollInfoT, GetScrollInfoD);
+		DetourAttach(&(PVOID&)SetScrollPosT, SetScrollPosD);
+		DetourAttach(&(PVOID&)GetScrollPosT, GetScrollPosD);
+		DetourAttach(&(PVOID&)SetScrollRangeT, SetScrollRangeD);
+		DetourAttach(&(PVOID&)GetScrollRangeT, GetScrollRangeD);
+		DetourAttach(&(PVOID&)ShowScrollBarT, ShowScrollBarD);
+		DetourAttach(&(PVOID&)EnableScrollBarT, EnableScrollBarD);
+		error = DetourTransactionCommit();
 	}
 	else if (dwReason == DLL_PROCESS_DETACH)
 	{
@@ -114,16 +120,26 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 		AfxTermExtensionModule(SkinUIDLL);
 
 		GdiplusShutdown(g_lGdiPlusToken);
-
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
 		//卸载钩子
-		DetourRemove((PBYTE)SetScrollInfoT, (PBYTE)SetScrollInfoD);
-		DetourRemove((PBYTE)SetScrollPosT, (PBYTE)SetScrollPosD);
-		DetourRemove((PBYTE)GetScrollInfoT, (PBYTE)GetScrollInfoD);
-		DetourRemove((PBYTE)GetScrollPosT, (PBYTE)GetScrollPosD);
-		DetourRemove((PBYTE)SetScrollRangeT, (PBYTE)SetScrollRangeD);
-		DetourRemove((PBYTE)GetScrollRangeT, (PBYTE)GetScrollRangeD);
-		DetourRemove((PBYTE)ShowScrollBarT, (PBYTE)ShowScrollBarD);
-		DetourRemove((PBYTE)EnableScrollBarT, (PBYTE)EnableScrollBarD);
+		DetourDetach(&(PVOID&)SetScrollInfoT, SetScrollInfoD);
+		DetourDetach(&(PVOID&)GetScrollInfoT, GetScrollInfoD);
+		DetourDetach(&(PVOID&)SetScrollPosT, SetScrollPosD);
+		DetourDetach(&(PVOID&)GetScrollPosT, GetScrollPosD);
+		DetourDetach(&(PVOID&)SetScrollRangeT, SetScrollRangeD);
+		DetourDetach(&(PVOID&)GetScrollRangeT, GetScrollRangeD);
+		DetourDetach(&(PVOID&)ShowScrollBarT, ShowScrollBarD);
+		DetourDetach(&(PVOID&)EnableScrollBarT, EnableScrollBarD);
+		//DetourRemove((PBYTE)SetScrollInfoT, (PBYTE)SetScrollInfoD);
+		//DetourRemove((PBYTE)SetScrollPosT, (PBYTE)SetScrollPosD);
+		//DetourRemove((PBYTE)GetScrollInfoT, (PBYTE)GetScrollInfoD);
+		//DetourRemove((PBYTE)GetScrollPosT, (PBYTE)GetScrollPosD);
+		//DetourRemove((PBYTE)SetScrollRangeT, (PBYTE)SetScrollRangeD);
+		//DetourRemove((PBYTE)GetScrollRangeT, (PBYTE)GetScrollRangeD);
+		//DetourRemove((PBYTE)ShowScrollBarT, (PBYTE)ShowScrollBarD);
+		//DetourRemove((PBYTE)EnableScrollBarT, (PBYTE)EnableScrollBarD);
+		error = DetourTransactionCommit();
 	}
 	return 1;   // 确定
 }

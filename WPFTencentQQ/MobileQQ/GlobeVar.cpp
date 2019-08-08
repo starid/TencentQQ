@@ -27,4 +27,8 @@ namespace GlobeVar
 			}break;
 		}
 	}
+	void __stdcall MainCallBackHandle(unsigned int, unsigned int, unsigned char*, unsigned int)
+	{
+
+	}
 };

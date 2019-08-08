@@ -1,4 +1,4 @@
-#include"D:\\³ÌÐò\\WPFTencentQQ\\OpenPublicDLL\\zlib128\\include\\zlib.h"
+#include<zlib.h>
 int zcompress(Bytef *data, uLong ndata,Bytef *zdata, uLong *nzdata);
 int gzcompress(Bytef *data, uLong ndata,Bytef *zdata, uLong *nzdata);
 int zdecompress(Byte *zdata, uLong nzdata,Byte *data, uLong *ndata);

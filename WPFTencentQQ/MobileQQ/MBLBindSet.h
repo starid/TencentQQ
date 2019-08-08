@@ -2,7 +2,7 @@
 #include "afxwin.h"
 #include"resource.h"
 #include"../CCodecWarpper/ConfigData.h"
-#include"../NetLib/NetLib.h"
+#include<NetLib.h>
 #include"UserMsg.h"
 
 

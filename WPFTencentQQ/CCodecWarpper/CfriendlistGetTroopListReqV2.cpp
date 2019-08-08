@@ -79,7 +79,7 @@ void CfriendlistGetTroopListReqV2::EncodeBody(CTXCommPack &p)
 	JCE::JCEByteArray *p2=static_cast<JCE::JCEByteArray *>(mStream1.ObjectAlloc(JCETypeJCEByteArray));
 	p2->value(mStream1.getByteBuffer());
 	JCE::JCEMap	Map1;
-	Map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p2));
+	Map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p2));
 	mStream1.clearbs();
 	mStream1.write(&Map1,0);
 

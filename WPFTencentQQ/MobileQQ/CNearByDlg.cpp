@@ -6,7 +6,7 @@
 #include "afxdialogex.h"
 #include"../CCodecWarpper/PackReq.h"
 #include"../CCodecWarpper/ClassFactory.h"
-#include"../NetLib/NetLib.h"
+#include<NetLib.h>
 #include"../CCodecWarpper/ReqGetEncounterV2.h"
 #include"SeqSerial.h"
 
@@ -63,5 +63,5 @@ void CCNearByDlg::OnBnClickedButton1()
 	mPack.SetSeq(mSeqSerial.GetNexSeq(CSeqSerial::default_func));
 	mPack.pConfig=pConfig;
 	mPack.PackData(&mReqGetEncounterV2);
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }

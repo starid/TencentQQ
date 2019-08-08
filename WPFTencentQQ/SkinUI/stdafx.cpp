@@ -5,3 +5,16 @@
 #include "stdafx.h"
 
 
+
+
+//¿âÎÄ¼þ
+#ifdef _DEBUG
+#pragma comment (lib,"../LibD/SkinUI_ScrollBar.lib")
+#pragma comment (lib,"Detours.lib")
+#else
+#pragma comment (lib,"../Lib/SkinUI_ScrollBar.lib")
+#pragma comment (lib,"Detours.lib")
+#endif
+#pragma comment(lib,"Gdiplus.lib")
+
+

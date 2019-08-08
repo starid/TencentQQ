@@ -41,7 +41,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-	Ini m_Ini;
+	CSimpleIniA mSimpleIniA;
 	CConfigData Config;
 	unsigned int m_Send;
 	unsigned int m_Recv;
@@ -54,7 +54,7 @@ private:
 	static DWORD _stdcall HeartThreadProc( LPVOID lpParam );
 
 	void InitSendPacket();
-	void DlgSend(unsigned int ClientID,ByteBuffer &b){SendPacket(ClientID,&b);AddSend();};
+	void DlgSend(unsigned int ClientID,ByteBuffer &b){SendPacket(ClientID,(unsigned char*)b.contents(),b.size());AddSend();};
 	//״̬�ĸı�
 	void AddSend(){m_Send++;m_Status.Updata(m_Send,m_Recv,m_Abandon);};
 	void AddRecv(){m_Recv++;m_Status.Updata(m_Send,m_Recv,m_Abandon);};

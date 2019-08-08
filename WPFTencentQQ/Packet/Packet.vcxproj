@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
+    <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(SolutionDir)$(Configuration)\;$(WindowsSDK_LibraryPath_x86);$(SolutionDir)\OpenPublicDLL\protobuflib\;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\LibD\</OutDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)\OpenPublicDLL\protobuflib;$(IncludePath)</IncludePath>

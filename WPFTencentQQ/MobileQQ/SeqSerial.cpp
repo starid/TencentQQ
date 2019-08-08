@@ -84,7 +84,7 @@ void CSeqSerial::CMobileNo_RequestBindMobile(LPVOID lParam1, LPVOID lParam2)
 			pMainDlg->pConfig->mRequestBindMobile.nationCode.value(strnationCode);
 			mPack.pConfig=pMainDlg->pConfig;
 			mPack.PackData();
-			SendPacket(pMainDlg->pConfig->m_iCurrentClientID,&(mPack.pack));
+			SendPacket(pMainDlg->pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 		}
 	}
 }

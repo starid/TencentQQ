@@ -131,7 +131,7 @@ void CMBLBindSet::OnBnClickedButton1()
 	pConfig->mRequestVerifyBindingSmscode.sessionSid.value(bt);
 	mPack.pConfig=pConfig;
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 //解除绑定
@@ -147,7 +147,7 @@ void CMBLBindSet::OnBnClickedButton8()
 	mPack.SetPacketType(account_RequestCancelBindMobile);
 	mPack.pConfig=pConfig;
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(), mPack.pack.size());
 }
 
 //验证
@@ -166,7 +166,7 @@ void CMBLBindSet::OnBnClickedButton2()
 	mPack.pConfig->mRequestBindMobile.mobileNo.value("+86");
 	mPack.pConfig->mRequestBindMobile.nationCode.value(str1.GetBuffer(0));
 	mPack.PackData();
-	SendPacket(pConfig->m_iCurrentClientID,&(mPack.pack));
+	SendPacket(pConfig->m_iCurrentClientID,(unsigned char*)mPack.pack.contents(),mPack.pack.size());
 	CString strFormat;
 	strFormat.Format("查询号码:%s%s","+86",str1);
 	//OutputEdit(strFormat);

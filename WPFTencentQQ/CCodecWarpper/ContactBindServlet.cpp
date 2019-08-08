@@ -220,14 +220,14 @@ void CContactBindServlet::EncodeBody(CTXCommPack &p,unsigned int type)
 	JCE::JCEByteArray *p2=static_cast<JCE::JCEByteArray *>(mStream1.ObjectAlloc(JCETypeJCEByteArray));
 	p2->value(mStream1.getByteBuffer());
 	JCE::JCEMap	Map1;
-	Map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(strKey1,p2));
+	Map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&strKey1,p2));
 	mStream1.clearbs();
 	//·â×°RequestHeader
 	CRequestHeader mRequestHeader(100,sCmd,0,0,"",0,"","","",0,0);
 	mStream1.write(&mRequestHeader,0);
 	p2=static_cast<JCE::JCEByteArray *>(mStream1.ObjectAlloc(JCETypeJCEByteArray));
 	p2->value(mStream1.getByteBuffer());
-	Map1._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(strKey2,p2));
+	Map1._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&strKey2,p2));
 	mStream1.clearbs();
 	mStream1.write(&Map1,0);
 

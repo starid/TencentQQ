@@ -84,10 +84,10 @@ void CPhSigLcId::EncodeBody(CTXCommPack &p)
 	p2->value(mStream1.getByteBuffer());
 	JCE::JCEMap*	pMap;
 	pMap=static_cast<JCE::JCEMap *>(mStream1.ObjectAlloc(JCETypeJCEMap));
-	pMap->_value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,p2));
+	pMap->_value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,p2));
 	key1.value("req");
 	JCE::JCEMap		 map2;
-	map2._value.insert(std::pair<JCE::JCEString,JCE::IObject*>(key1,pMap));
+	map2._value.insert(std::pair<JCE::JCEString*,JCE::IObject*>(&key1,pMap));
 	mStream1.clearbs();
 	mStream1.write(&map2,0);
 

@@ -72,6 +72,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="addcontacts\Color.proto">
+      <Filter>PB\addcontacts</Filter>
+    </None>
+    <None Include="addcontacts\Label.proto">
+      <Filter>PB\addcontacts</Filter>
+    </None>
+    <None Include="addcontacts\Location.proto">
+      <Filter>PB\addcontacts</Filter>
+    </None>
+    <None Include="addcontacts\record.proto">
+      <Filter>PB\addcontacts</Filter>
+    </None>
+    <None Include="addcontacts\search.proto">
+      <Filter>PB\addcontacts</Filter>
+    </None>
+    <None Include="profilecard\comm.proto">
+      <Filter>PB\profilecard</Filter>
+    </None>
+    <None Include="profilecard\ui.proto">
+      <Filter>PB\profilecard</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -281,27 +302,6 @@
     <ClCompile Include="SummaryCardRespHead.cpp">
       <Filter>SummaryCard</Filter>
     </ClCompile>
-    <ClCompile Include="addcontacts\Color.pb.cc">
-      <Filter>PB\addcontacts</Filter>
-    </ClCompile>
-    <ClCompile Include="addcontacts\Label.pb.cc">
-      <Filter>PB\addcontacts</Filter>
-    </ClCompile>
-    <ClCompile Include="addcontacts\Location.pb.cc">
-      <Filter>PB\addcontacts</Filter>
-    </ClCompile>
-    <ClCompile Include="addcontacts\record.pb.cc">
-      <Filter>PB\addcontacts</Filter>
-    </ClCompile>
-    <ClCompile Include="addcontacts\search.pb.cc">
-      <Filter>PB\addcontacts</Filter>
-    </ClCompile>
-    <ClCompile Include="profilecard\comm.pb.cc">
-      <Filter>PB\profilecard</Filter>
-    </ClCompile>
-    <ClCompile Include="profilecard\ui.pb.cc">
-      <Filter>PB\profilecard</Filter>
-    </ClCompile>
     <ClCompile Include="ClassFactory.cpp">
       <Filter>ClassFactory</Filter>
     </ClCompile>
@@ -376,6 +376,27 @@
     </ClCompile>
     <ClCompile Include="VipOpenInfo.cpp">
       <Filter>QQService</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Color.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Label.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\Location.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\record.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="addcontacts\search.pb.cc">
+      <Filter>PB\addcontacts</Filter>
+    </ClCompile>
+    <ClCompile Include="profilecard\comm.pb.cc">
+      <Filter>PB\profilecard</Filter>
+    </ClCompile>
+    <ClCompile Include="profilecard\ui.pb.cc">
+      <Filter>PB\profilecard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -592,27 +613,6 @@
     <ClInclude Include="SummaryCardRespHead.h">
       <Filter>SummaryCard</Filter>
     </ClInclude>
-    <ClInclude Include="addcontacts\Color.pb.h">
-      <Filter>PB\addcontacts</Filter>
-    </ClInclude>
-    <ClInclude Include="addcontacts\Label.pb.h">
-      <Filter>PB\addcontacts</Filter>
-    </ClInclude>
-    <ClInclude Include="addcontacts\Location.pb.h">
-      <Filter>PB\addcontacts</Filter>
-    </ClInclude>
-    <ClInclude Include="addcontacts\record.pb.h">
-      <Filter>PB\addcontacts</Filter>
-    </ClInclude>
-    <ClInclude Include="addcontacts\search.pb.h">
-      <Filter>PB\addcontacts</Filter>
-    </ClInclude>
-    <ClInclude Include="profilecard\comm.pb.h">
-      <Filter>PB\profilecard</Filter>
-    </ClInclude>
-    <ClInclude Include="profilecard\ui.pb.h">
-      <Filter>PB\profilecard</Filter>
-    </ClInclude>
     <ClInclude Include="ClassFactory.h">
       <Filter>ClassFactory</Filter>
     </ClInclude>
@@ -693,6 +693,27 @@
     </ClInclude>
     <ClInclude Include="VipOpenInfo.h">
       <Filter>QQService</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Color.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Label.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\Location.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\record.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="addcontacts\search.pb.h">
+      <Filter>PB\addcontacts</Filter>
+    </ClInclude>
+    <ClInclude Include="profilecard\comm.pb.h">
+      <Filter>PB\profilecard</Filter>
+    </ClInclude>
+    <ClInclude Include="profilecard\ui.pb.h">
+      <Filter>PB\profilecard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
