@@ -110,6 +110,9 @@
     <ClInclude Include="CNearByDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Lock.h">
+      <Filter>Assistant</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="QQ.cpp">

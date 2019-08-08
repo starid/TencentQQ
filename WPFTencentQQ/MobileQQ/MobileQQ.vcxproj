@@ -123,6 +123,7 @@
     <ClInclude Include="GlobeVar.h" />
     <ClInclude Include="IdentifyCodeDlg.h" />
     <ClInclude Include="IOCPSettingsDlg.h" />
+    <ClInclude Include="Lock.h" />
     <ClInclude Include="MachineSet.h" />
     <ClInclude Include="MBLBindSet.h" />
     <ClInclude Include="MFCStatus.h" />

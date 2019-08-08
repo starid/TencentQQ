@@ -28,6 +28,8 @@
 namespace GlobeVar
 {
 	extern CRespondQueryQQBindingStat mRespondQueryQQBindingStat;
+	extern HWND *pDlgLogin;
+	extern HWND *pMainWnd;
 	void Error_Check(unsigned int mode);
 	void __stdcall MainCallBackHandle(unsigned int, unsigned int, unsigned char*, unsigned int);
 };

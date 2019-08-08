@@ -161,6 +161,8 @@ BOOL COffineQQDlg::OnInitDialog()
 		return FALSE;
 	}
 	StatusLogText("COffineQQDlg 对话栏设置完毕。。。");
+
+	GlobeVar::pMainWnd = &this->m_hWnd;
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 

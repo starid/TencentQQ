@@ -72,7 +72,7 @@ void Dlg_Login::OnBnClickedButton1()
 	strLog.Format("准备连入 %s:%d",ip,pConfig->port);
 	m_List.AddString((LPCTSTR)strLog);
 
-	if(!OnConnectA(GlobeVar::MainCallBackHandle,(unsigned char*)ip,pConfig->port,1))
+	if(!OnConnectA(GlobeVar::MainCallBackHandle,(unsigned char*)ip,pConfig->port,0))
 	{
 		GlobeVar::Error_Check(ERR_NORESPOND);
 	}
@@ -137,6 +137,8 @@ BOOL Dlg_Login::OnInitDialog()
 	DataLogBytes("ecdh ecdh_key",(unsigned char*)pConfig->ecdh_key,sizeof(pConfig->ecdh_key));
 
 	m_List.AddString("网络初始化成功!");
+
+	GlobeVar::pDlgLogin = &this->m_hWnd;
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
@@ -218,7 +220,6 @@ afx_msg LRESULT Dlg_Login::OnReceivedMsg(WPARAM wParam, LPARAM lParam)
 	CCommonUnPack *packet= new CCommonUnPack();
 	packet->Wrapping(*pRecv);
 	packet->pConfig=pConfig;
-	delete pRecv;
 	pRecv=NULL;
 
 	GlobeVar::Error_Check(packet->UnPackData());
