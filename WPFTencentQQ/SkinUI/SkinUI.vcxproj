@@ -126,7 +126,7 @@
     </ResourceCompile>
     <Link>
       <OutputFile>../BinD/SkinUI.dll</OutputFile>
-      <ModuleDefinitionFile>.\SkinUID.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\SkinUI.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
